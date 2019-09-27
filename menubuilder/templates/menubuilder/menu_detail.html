@@ -1,0 +1,14 @@
+{% extends "base/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+        <h5><a href="{% url 'menubuilder' %}">Menus</a> >> {{ object }}</h5>
+        <p><b>English Label:</b> {{ object.label_en }}</p>
+        <p><b>Swahili Label:</b> {{ object.label_sw }}</p>
+        <div class="form-group mb-1">
+            <a role="button" class="btn btn-outline-danger btn-sm" type="submmit"><span class="oi oi-trash"></span> Delete</a>
+            <a role="button" href="{% url 'menu-update' object.id %}" class="btn btn-outline-info btn-sm" type="submmit"><span class="oi oi-pencil"></span> Edit</a>
+            <a role="button" href="{% url 'menu-create' object.id %}" class="btn btn-outline-primary btn-sm" type="submmit"><span class="oi oi-pencil"></span> Add Sub Menu</a>
+        </div>
+    </div>
+{% endblock content%}

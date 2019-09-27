@@ -1,0 +1,74 @@
+#treetable-rows tr{
+  display: none;
+}
+
+#treetable-rows tr.tpd-0{
+  font-size: 100%;
+}
+#treetable-rows tr.tpd-1{
+  font-size: 98%;
+}
+#treetable-rows tr.tpd-2{
+  font-size: 96%;
+}
+#treetable-rows tr.tpd-3{
+  font-size: 94%;
+}
+#treetable-rows tr.tpd-4{
+  font-size: 92%;
+}
+#treetable-rows tr.tpd-5{
+  font-size: 90%;
+}
+#treetable-rows tr.tpd-6{
+  font-size: 88%;
+}
+#treetable-rows tr.tpd-7{
+  font-size: 86%;
+}
+#treetable-rows tr.tpd-8{
+  font-size: 84%;
+}
+#treetable-rows tr.tpd-9{
+  font-size: 82%;
+}
+#treetable-rows tr.tpd-10{
+  font-size: 80%;
+}
+#treetable-rows tr.tpd-11{
+  font-size: 78%;
+}
+
+#treetable-rows tr.tpd-0 td.name{
+  padding-left: .2rem;
+}
+#treetable-rows tr.tpd-1 td.name{
+  padding-left: 1rem;
+}
+#treetable-rows tr.tpd-2 td.name{
+  padding-left: 2rem;
+}
+#treetable-rows tr.tpd-3 td.name{
+  padding-left: 3rem;
+}
+#treetable-rows tr.tpd-4 td.name{
+  padding-left: 4rem;
+}
+#treetable-rows tr.tpd-5 td.name{
+  padding-left: 5rem;
+}
+#treetable-rows tr.tpd-6 td.name{
+  padding-left: 6rem;
+}
+#treetable-rows tr.tpd-7 td.name{
+  padding-left: 7rem;
+}
+#treetable-rows tr.tpd-9 td.name{
+  padding-left: 8rem;
+}
+#treetable-rows tr.tpd-10 td.name{
+  padding-left: 9rem;
+}
+#treetable-rows tr.tpd-11 td.name{
+  padding-left: 10rem;
+}
