@@ -1,0 +1,19 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+<div class="content-section">
+    <div class="row mr-1 mb-1">
+      <div class="col-sm">
+        <h5>{{ object }}</h5>
+      </div>
+      <div class="float-right">
+        <a href="{% url 'menu-nav-update' %}" role="button" class="float-right btn btn-light btn-sm pt-0 pb-0">
+          <span class="oi oi-play-circle"></span> Play
+        </a>
+      </div>
+    </div>
+</div>
+{% endblock content%}
+
+

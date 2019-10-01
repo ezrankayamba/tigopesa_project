@@ -26,6 +26,13 @@ class MenuDetailView(DetailView):
     model = Menu
     template_name = 'menubuilder/menu_detail.html'
 
+    def get_object(self):
+        print(self.kwargs)
+        # print(args)
+        if 'pk' in self.kwargs:
+            return Menu.objects.get(pk=self.kwargs.get('pk'))
+        return Menu.objects.get(parent__isnull=True)
+
 
 class MenuUpdateView(UpdateView):
     model = Menu
@@ -33,6 +40,17 @@ class MenuUpdateView(UpdateView):
 
     def form_valid(self, form):
         return super().form_valid(form)
+
+
+class MenuNavUpdateView(UpdateView):
+    model = Menu
+    fields = ['parent', 'menu_type', 'name', 'label_en', 'label_sw', 'order_num', 'sample_value']
+    template_name = 'menubuilder/menu_nav_form.html'
+
+    def get_object(self):
+        if 'pk' in self.request.GET:
+            return Menu.objects.get(pk=self.request.GET.get('pk'))
+        return Menu.objects.get(parent__isnull=True)
 
 
 class MenuCreateView(CreateView):

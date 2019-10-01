@@ -1,14 +1,37 @@
 {% extends "base/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="content-section">
-        <h5><a href="{% url 'menubuilder' %}">Menus</a> >> {{ object }}</h5>
-        <p><b>English Label:</b> {{ object.label_en }}</p>
-        <p><b>Swahili Label:</b> {{ object.label_sw }}</p>
-        <div class="form-group mb-1">
-            <a role="button" class="btn btn-outline-danger btn-sm" type="submmit"><span class="oi oi-trash"></span> Delete</a>
-            <a role="button" href="{% url 'menu-update' object.id %}" class="btn btn-outline-info btn-sm" type="submmit"><span class="oi oi-pencil"></span> Edit</a>
-            <a role="button" href="{% url 'menu-create' object.id %}" class="btn btn-outline-primary btn-sm" type="submmit"><span class="oi oi-pencil"></span> Add Sub Menu</a>
+    <div class="content-section small">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 p-0">
+                   <h5><a href="{% url 'menubuilder' %}">Menus</a> >> {{ object }}</h5>
+                </div>
+                <div class="col-md-6 p-0">
+                    <div class="form-group mb-1 float-right ">
+                        <a role="button" class="btn btn-outline-danger btn-sm" type="submmit"><span class="oi oi-trash"></span> Delete</a>
+                        <a role="button" href="{% url 'menu-update' object.id %}" class="btn btn-outline-info btn-sm" type="submmit"><span class="oi oi-pencil"></span> Edit</a>
+                        <a role="button" href="{% url 'menu-create' object.id %}" class="btn btn-outline-primary btn-sm" type="submmit"><span class="oi oi-pencil"></span> Add Sub Menu</a>
+                    </div>
+                </div>
+            </div>
         </div>
+        <div>
+            <p class="mb-0">ENG: <i>{{ object.label_en }}</i></p>
+            <p class="mb-0">SWA: <i>{{ object.label_sw }}</i></p>
+        </div>
+        {% if object.parent %}
+            <a role="button" class="btn btn-outline-info btn-sm mt-2 mb-2" href="{% url 'menu-detail' object.parent.id %}"><span class="oi oi-arrow-thick-left"></span> Back</a>
+        {% endif %}
+        <ul class="list-group">
+            {% for m in object.get_children %}
+                <li class="list-group-item d-flex justify-content-between">
+                    {{ m.name }}
+                    {% if m.menu_type != 'LABEL' %}
+                        <a class="pl-2 pr-2" href="{% url 'menu-detail' m.id %}"><span class="oi oi-media-play"></span></a>
+                    {% endif %}
+               </li>
+            {% endfor %}
+        </ul>
     </div>
 {% endblock content%}

@@ -8,7 +8,9 @@
         <h5>Menu Builder</h5>
       </div>
       <div class="float-right">
-
+        <a href="{% url 'menu-nav-update' %}" role="button" class="float-right btn btn-light btn-sm pt-0 pb-0">
+          <span class="oi oi-play-circle"></span> Play
+        </a>
       </div>
     </div>
     <table class="table table-hover table-sm">
@@ -28,8 +30,11 @@
             <td width="50%" class="name"><span class="oi oi-caret-right"></span> {{ m.name }}</td>
             <td>{{ m.label_en }}</td>
             <td>{{ m.label_sw }}</td>
-            <td><a href="{% url 'menu-detail' m.id %}" role="button"
-              class="float-right btn btn-light btn-sm pt-0 pb-0"><span class="oi oi-cog"></span></a></td>
+            <td>
+              <a href="{% url 'menu-detail' m.id %}" role="button" class="float-right btn btn-light btn-sm pt-0 pb-0">
+                <span class="oi oi-cog"></span>
+              </a>
+            </td>
           </tr>
         {% endfor %}
       </tbody>
